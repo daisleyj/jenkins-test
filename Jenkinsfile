@@ -40,7 +40,7 @@ pipeline {
             // we will only run this stage if the branch name is not master
             when {
                 expression {
-                    BRANCH_NAME != 'master' && EXECUTETESTS
+                    BRANCH_NAME != 'master' && params.EXECUTETESTS
                 }
             }
             steps {
