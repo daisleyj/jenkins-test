@@ -54,7 +54,7 @@ pipeline {
                 withCredentials([
                     usernamePassword(credentialsId: 'pipelineTestCreds', usernameVariable: 'USER', passwordVariable: 'PASS')
                 ]) {
-                echo "Deploying with credentials: ${USER}, ${PASS}"
+                echo "Deploying version ${params.VERSION} with credentials: ${USER}, ${PASS}"
                 }
             }
         }
