@@ -26,6 +26,17 @@ pipeline {
                 echo 'Deploying code'
             }
         }
-
+        
+    post {
+        always {
+            echo 'I always execute'
+        }
+        success {
+            echo 'Build successful'
+        }
+        failure {
+            echo 'Build Failed'
+        }
+    }
     }
 }
