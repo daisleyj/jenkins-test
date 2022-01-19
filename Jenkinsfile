@@ -2,7 +2,9 @@ pipeline {
     agent any
     environment {
         VERSION = '1.3.0'
-        CREDENTIALS = credentials('pipelineTestCreds')
+        // Below gets credentials stored in Jenkins but we won't use this here
+        // We'll get the credentials in a wrapper in the deploy stage
+        // CREDENTIALS = credentials('pipelineTestCreds')
     }
     stages {
         
@@ -40,6 +42,9 @@ pipeline {
         stage('deploy') {
             steps {
                 echo 'Deploying code'
+                withCredentials([
+                    usernamePassword(credentials: 'pipelineTestCreds', usernameVariable: USER, passwordVariable: PASS)
+                ])
                 echo "Deploying with credentials: ${CREDENTIALS}"
             }
         }
