@@ -27,7 +27,7 @@ pipeline {
             }
             steps {
                 echo "building verions ${VERSION}"
-                sh 'echo mvn --version'
+                sh 'echo $(mvn --version)'
             }
         }
 
