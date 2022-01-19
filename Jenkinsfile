@@ -11,10 +11,9 @@ pipeline {
 
         stage('build') {
             // we are only going to run this stage if the branch name is dev
-            // and there have been some code changes
             when {
                 expression {
-                    BRANCH_NAME == 'dev' && CODE_CHANGES == true
+                    BRANCH_NAME == 'dev'
                 }
             }
             steps {
