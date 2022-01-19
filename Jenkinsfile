@@ -1,3 +1,7 @@
+
+// make a variable for our external script
+def gv
+
 pipeline {
     agent any
     environment {
@@ -15,7 +19,14 @@ pipeline {
         booleanParam(name: 'EXECUTETESTS', defaultValue: true, description: 'Execute the tests')
     }
     stages {
-        
+        // Loads external scripts
+        stage("init") {
+                steps {
+                    script {
+                        gv = load "script.groovy"
+                    }
+                }
+        }
         stage('pull source') {
             steps {
                 echo 'pulling source from repository'
@@ -31,6 +42,9 @@ pipeline {
                 }
             }
             steps {
+                script {
+                    gv.build()
+                }
                 echo "building verions ${VERSION}"
                 sh 'echo $(mvn --version)'
             }
@@ -44,7 +58,9 @@ pipeline {
                 }
             }
             steps {
-                echo 'Running tests'
+                script {
+                    gv.test()
+                }
             }
         }
 
