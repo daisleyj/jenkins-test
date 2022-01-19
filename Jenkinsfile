@@ -26,7 +26,7 @@ pipeline {
                 echo 'Deploying code'
             }
         }
-        
+    }
     post {
         always {
             echo 'I always execute'
@@ -37,6 +37,5 @@ pipeline {
         failure {
             echo 'Build Failed'
         }
-    }
     }
 }
