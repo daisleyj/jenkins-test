@@ -7,7 +7,7 @@ pipeline {
         // CREDENTIALS = credentials('pipelineTestCreds')
     }
     tools {
-        maven mvn3.8
+        maven mvn38
     }
     stages {
         
