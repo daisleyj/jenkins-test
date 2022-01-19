@@ -22,7 +22,7 @@ pipeline {
             // and the version is 1.3.0
             when {
                 expression {
-                    $env.BRANCH_NAME == 'dev' && VERSION == '1.3.0'
+                    BRANCH_NAME == 'dev' && VERSION == '1.3.0'
                 }
             }
             steps {
