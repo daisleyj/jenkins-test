@@ -2,6 +2,7 @@ pipeline {
     agent any
     environment {
         VERSION = '1.3.0'
+        CREDENTIALS = credentials('pipelineTestCreds')
     }
     stages {
         
@@ -39,6 +40,7 @@ pipeline {
         stage('deploy') {
             steps {
                 echo 'Deploying code'
+                echo "Deploying with credentials: ${CREDENTIALS}"
             }
         }
     }
