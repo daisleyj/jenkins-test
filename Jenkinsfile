@@ -48,9 +48,9 @@ pipeline {
                 script {
                     gv.build()
                 }
-                // sh 'mvn -v'
+                sh 'mvn -v'
                 sh 'echo "JDK Version: $(javac -version)"' 
-                sh 'gradle --version'
+                // sh 'gradle --version'
                 sh 'echo "NPM Version: $(npm --version)"'
                 sh 'yarn install'
                 
