@@ -35,7 +35,7 @@ pipeline {
             // we will only run this stage if the branch name is not master
             when {
                 expression {
-                    $env.BRANCH_NAME != 'master'
+                    "$env.BRANCH_NAME" != 'master'
                 }
             }
             steps {
