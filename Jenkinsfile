@@ -16,6 +16,11 @@ pipeline {
         }
 
         stage('test') {
+            when {
+                expression {
+                    BRANCH_NAME != 'master'
+                }
+            }
             steps {
                 echo 'Running tests'
             }
