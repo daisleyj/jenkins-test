@@ -13,6 +13,8 @@ pipeline {
     tools {
         maven 'mvn3.8'
         jdk 'OpenJDK11'
+        nodejs 'Node17.4'
+
     }
     parameters {
         string(name: 'RANDOMSTRING', defaultValue: 'A Random String', description: 'This is a random string')
