@@ -6,9 +6,9 @@ pipeline {
         // We'll get the credentials in a wrapper in the deploy stage
         // CREDENTIALS = credentials('pipelineTestCreds')
     }
-    tools {
-        maven mvn3.8
-    }
+    //tools {
+    //    maven mvn3.8
+    //}
     stages {
         
         stage('pull source') {
