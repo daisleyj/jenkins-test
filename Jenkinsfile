@@ -43,7 +43,7 @@ pipeline {
             steps {
                 echo 'Deploying code'
                 withCredentials([
-                    usernamePassword(credentialsId: 'pipelineTestCreds', usernameVariable: USER, passwordVariable: PASS)
+                    usernamePassword(credentialsId: 'pipelineTestCreds', usernameVariable: 'USER', passwordVariable: 'PASS')
                 ])
                 echo "Deploying with credentials: ${CREDENTIALS}"
             }
