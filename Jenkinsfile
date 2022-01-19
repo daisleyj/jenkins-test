@@ -1,6 +1,8 @@
 pipeline {
     agent any
-
+    environment {
+        VERSION = '1.3.0'
+    }
     stages {
         
         stage('pull source') {
@@ -11,10 +13,10 @@ pipeline {
 
         stage('build') {
             // we are only going to run this stage if the branch name is dev
-            
+            // and the version is 1.3.0
             when {
                 expression {
-                    BRANCH_NAME == 'dev'
+                    BRANCH_NAME == 'dev' && VERSION == '1.3.0'
                 }
             }
             steps {
