@@ -20,11 +20,7 @@ pipeline {
         stage('build') {
             // we are only going to run this stage if the branch name is dev
             // and the version is 1.3.0
-            when {
-                expression {
-                    BRANCH_NAME == 'dev' && VERSION == '1.3.0'
-                }
-            }
+            
             steps {
                 echo "building verions ${VERSION}"
                 // sh 'echo mvn --version'
