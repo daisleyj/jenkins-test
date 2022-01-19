@@ -9,6 +9,11 @@ pipeline {
     tools {
         maven 'mvn3.8'
     }
+    parameters {
+        string(name: 'RANDOMSTRING', defaultValue: 'A Random String', description: 'This is a random string')
+        choice(name: 'VERSIONTODEPLOY', choices: ['1.1.0', '1.1.1', '1.1.2'], description: '')
+        booleanParam(name: 'EXECUTETESTS', defaultValue: true, description: 'Execute the tests')
+    }
     stages {
         
         stage('pull source') {
@@ -35,7 +40,7 @@ pipeline {
             // we will only run this stage if the branch name is not master
             when {
                 expression {
-                    BRANCH_NAME != 'master'
+                    BRANCH_NAME != 'master' && EXECUTETESTS
                 }
             }
             steps {
