@@ -49,10 +49,11 @@ pipeline {
                 }
                 sh 'mvn -v'
                 sh 'echo "JDK Version: $(javac -version)"' 
+                sh 'gradle --version'
                 with nodejs('Node17.4') {
                     sh 'echo "NPM Version: $(npm --version; yarn install)"'    
                 }
-                sh 'echo "Gradle Version: $(gradlew -v)"'
+                
             }
         }
 
