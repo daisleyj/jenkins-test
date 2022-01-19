@@ -10,12 +10,20 @@ pipeline {
         }
 
         stage('build') {
+            // we are only going to run this stage if the branch name is dev
+            // and there have been some code changes
+            when {
+                expression {
+                    BRANCH_NAME == 'dev' && CODE_CHANGES == true
+                }
+            }
             steps {
                 echo 'building...'
             }
         }
 
         stage('test') {
+            // we will only run this stage if the branch name is not master
             when {
                 expression {
                     BRANCH_NAME != 'master'
