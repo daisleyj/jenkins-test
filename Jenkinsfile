@@ -50,7 +50,7 @@ pipeline {
                     gv.build()
                 }
                 echo "building verions ${VERSION}"
-                sh 'mvn --version; javac -version; npm --version'
+                sh 'echo $(mvn --version); echo $(javac -version); echo $(npm --version)'
                 withGradle() {
                     sh './gradlew -v'
                 }
