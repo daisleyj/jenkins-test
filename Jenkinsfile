@@ -47,10 +47,7 @@ pipeline {
                 script {
                     gv.build()
                 }
-                echo "building verions ${VERSION}"
-                withMaven() {
-                    sh 'mvn -v'
-                }    
+                sh 'mvn -v'
                 sh 'echo "JDK Version: $(javac -version)"' 
                 with nodejs('Node17.4') {
                     sh 'echo "NPM Version: $(npm --version; yarn install)"'    
