@@ -14,7 +14,6 @@ pipeline {
         maven 'mvn3.8'
         jdk 'OpenJDK11'
         nodejs 'Node17.4'
-        gradle 'grdl7.3'
 
     }
     parameters {
@@ -50,7 +49,7 @@ pipeline {
                     gv.build()
                 }
                 echo "building verions ${VERSION}"
-                sh 'echo $(mvn --version); echo $(javac -version); echo $(npm --version)'
+                sh 'echo $(mvn --version); echo $(javac -version); echo $(npm --version); yarn install'
                 withGradle() {
                     sh './gradlew -v'
                 }
