@@ -14,6 +14,7 @@ pipeline {
         maven 'mvn3.8'
         jdk 'OpenJDK11'
         gradle 'grdl7.3'
+        nodejs 'Node17.3'
     }
     parameters {
         string(name: 'RANDOMSTRING', defaultValue: 'A Random String', description: 'This is a random string')
@@ -47,12 +48,11 @@ pipeline {
                 script {
                     gv.build()
                 }
-                sh 'mvn -v'
+                // sh 'mvn -v'
                 sh 'echo "JDK Version: $(javac -version)"' 
-                sh 'gradle --version'
-                with nodejs('Node17.4') {
-                    sh 'echo "NPM Version: $(npm --version; yarn install)"'    
-                }
+                // sh 'gradle --version'
+                sh 'echo "NPM Version: $(npm --version)"'
+                sh 'yarn install'
                 
             }
         }
