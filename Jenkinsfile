@@ -11,9 +11,10 @@ pipeline {
 
         stage('build') {
             // we are only going to run this stage if the branch name is dev
+            // and it has the tag 'test-release'
             when {
                 expression {
-                    BRANCH_NAME == 'dev'
+                    BRANCH_NAME == 'dev' && TAG_NAME == 'test-release'
                 }
             }
             steps {
