@@ -22,7 +22,7 @@ pipeline {
             // and the version is 1.3.0
             when {
                 expression {
-                    env.BRANCH_NAME == 'dev' && VERSION == '1.3.0'
+                    $env.BRANCH_NAME == 'dev' && VERSION == '1.3.0'
                 }
             }
             steps {
@@ -35,7 +35,7 @@ pipeline {
             // we will only run this stage if the branch name is not master
             when {
                 expression {
-                    env.BRANCH_NAME != 'master'
+                    $env.BRANCH_NAME != 'master'
                 }
             }
             steps {
