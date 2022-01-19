@@ -47,10 +47,10 @@ pipeline {
             echo 'I always execute'
         }
         success {
-            echo 'Build successful'
+            echo 'I only execute when build is successful'
         }
         failure {
-            echo 'Build Failed'
+            echo 'I only execute when build failed'
         }
     }
 }
