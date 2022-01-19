@@ -12,6 +12,7 @@ pipeline {
     }
     tools {
         maven 'mvn3.8'
+        jdk 'OpenJDK11'
     }
     parameters {
         string(name: 'RANDOMSTRING', defaultValue: 'A Random String', description: 'This is a random string')
@@ -46,7 +47,7 @@ pipeline {
                     gv.build()
                 }
                 echo "building verions ${VERSION}"
-                sh 'echo $(mvn --version)'
+                sh 'echo $(mvn --version); echo $(javac -version)'
             }
         }
 
