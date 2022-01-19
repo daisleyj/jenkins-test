@@ -49,7 +49,7 @@ pipeline {
                     gv.build()
                 }
                 echo "building verions ${VERSION}"
-                sh 'mvn --version; echo $(javac -version); npm --version; yarn install'    
+                sh 'echo ($mvn --version); echo $(javac -version); npm --version; yarn install'    
             }
         }
 
