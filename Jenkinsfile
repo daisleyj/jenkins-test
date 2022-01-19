@@ -20,7 +20,7 @@ pipeline {
                 }
             }
             steps {
-                echo 'building...'
+                echo "building verions ${VERSION}"
             }
         }
 
