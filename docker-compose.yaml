@@ -1,0 +1,19 @@
+version: "3.9"
+
+services:
+  jenkins:
+    image: jenkins/jenkins:lts-jdk11
+    container_name: jenkins-server
+    restart: always
+    ports:
+      - 8082:8080
+      - 50000:50000
+    networks:
+      - jenkins
+    volumes:
+      - /mnt/glusterfs/jenkins:/var/jenkins_home
+
+networks:
+  jenkins:
+    name: jenkins_net
+    driver: overlay
